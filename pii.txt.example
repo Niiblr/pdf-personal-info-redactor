@@ -1,0 +1,17 @@
+# PII strings to redact — one per line
+# Lines starting with # are ignored
+# The script searches every page of every PDF for exact matches of these strings
+# and redacts all occurrences.
+#
+# Tips:
+#   - Add each part of an address as a separate line in case they appear
+#     on different lines in the document
+#   - Include common variations (with and without middle initial, etc.)
+#   - Matching is case-sensitive, so add the version that appears in the PDFs
+
+John Smith
+J. Smith
+123 Main Street
+Anytown
+AB1 2CD
+john.smith@example.com
