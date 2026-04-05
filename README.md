@@ -156,6 +156,8 @@ python redact.py --ai --model llama3.2
 
 | Model | Size | Speed | Quality | Command |
 |-------|------|-------|---------|---------|
+| **qwen2.5:32b** | ~19 GB | 🐢 Slow | ★★★★★ | `ollama pull qwen2.5:32b` |
+| **gpt-oss:20b** | ~12 GB | 🐢 Slow | ★★★★★ | `ollama pull gpt-oss:20b` |
 | **llama3.2** | ~2 GB | ⚡ Fast | ★★★★☆ | `ollama pull llama3.2` |
 | **gemma3** | ~5 GB | ⚡ Fast | ★★★★☆ | `ollama pull gemma3` |
 | **mistral** | ~4 GB | ⚡ Fast | ★★★★☆ | `ollama pull mistral` |
