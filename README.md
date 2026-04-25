@@ -157,8 +157,8 @@ python redact.py --ai --model llama3.2
 | Model | Size | Speed | Quality | Command |
 |-------|------|-------|---------|---------|
 | **qwen3.5:27b** | ~16 GB | 🐢 Slow | ★★★★★ | `ollama pull qwen3.5:27b` |
-| **llama3.1:8b** | ~4.7 GB | ⚡ Fast | ★★★★☆ | `ollama pull llama3.1:8b` |
-| **gemma4:e4b** | ~2.5 GB | ⚡ Fast | ★★★★☆ | `ollama pull gemma4:e4b` |
+| **llama3.1:8b** | ~4.7 GB | 🚶 Medium | ★★★★☆ | `ollama pull llama3.1:8b` |
+| **gemma4:e4b** | ~2.5 GB | ⚡ Fast | ★★★☆☆ | `ollama pull gemma4:e4b` |
 
 > **💡 Tip:** `llama3.1:8b` is the recommended default: small, fast, and accurate enough for PII detection. Any model that can follow JSON output instructions will work.
 
