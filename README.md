@@ -3,17 +3,17 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A command-line tool that **automatically redacts personal information from PDF documents**, using exact string matching and/or AI-powered detection via a local LLM. No data leaves your machine — everything runs locally.
+A command-line tool that **automatically redacts personal information from PDF documents**, using exact string matching and/or AI-powered detection via a local LLM. No data leaves your machine; everything runs locally.
 
 ---
 
 ## ✨ Features
 
-- **Exact Match Redaction** — Provide a list of strings (names, addresses, etc.) and the tool finds and redacts every occurrence across all pages
-- **AI Header Scan** — Uses a local LLM (via [Ollama](https://ollama.com)) to intelligently identify PII in document headers you may have missed
-- **Batch Processing** — Drop multiple PDFs into the `input/` folder and redact them all in one run
-- **Fully Local** — No cloud APIs, no data leaves your machine
-- **Dual Mode** — Use exact match, AI scan, or both together in a single pass
+- **Exact Match Redaction:** Provide a list of strings (names, addresses, etc.) and the tool finds and redacts every occurrence across all pages
+- **AI Header Scan:** Uses a local LLM (via [Ollama](https://ollama.com)) to intelligently identify PII in document headers you may have missed
+- **Batch Processing:** Drop multiple PDFs into the `input/` folder and redact them all in one run
+- **Fully Local:** No cloud APIs, no data leaves your machine
+- **Dual Mode:** Use exact match, AI scan, or both together in a single pass
 
 ---
 
@@ -49,7 +49,7 @@ Copy the example file and add your personal information:
 cp pii.txt.example pii.txt
 ```
 
-Edit `pii.txt` with the strings you want to redact — one per line:
+Edit `pii.txt` with the strings you want to redact, one per line:
 
 ```text
 # Lines starting with # are ignored
@@ -116,7 +116,7 @@ python redact.py --input ./my_docs --output ./redacted
 
 ## 🤖 Using with a Local Model (Ollama)
 
-The AI detection mode uses [Ollama](https://ollama.com) to run a language model **entirely on your machine** — no API keys, no cloud, no data leaving your computer.
+The AI detection mode uses [Ollama](https://ollama.com) to run a language model **entirely on your machine**: no API keys, no cloud, no data leaving your computer.
 
 ### Step 1: Install Ollama
 
@@ -163,7 +163,7 @@ python redact.py --ai --model llama3.2
 | **mistral** | ~4 GB | ⚡ Fast | ★★★★☆ | `ollama pull mistral` |
 | **glm-4.7-flash** | ~5 GB | ⚡ Fast | ★★★★☆ | `ollama pull glm-4.7-flash` |
 
-> **💡 Tip:** `llama3.2` is the recommended default — small, fast, and accurate enough for PII detection. Any model that can follow JSON output instructions will work.
+> **💡 Tip:** `llama3.2` is the recommended default: small, fast, and accurate enough for PII detection. Any model that can follow JSON output instructions will work.
 
 ---
 
@@ -185,13 +185,13 @@ email@example.com
 **Tips:**
 - Split multi-line addresses into separate lines (one per line)
 - Include common variations (e.g., `John Smith` and `J. Smith`)
-- Matching is case-sensitive — use the exact casing from your PDFs
+- Matching is case-sensitive, so use the exact casing from your PDFs
 
 ### CLI reference
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `--pii STRING [STRING ...]` | Strings to redact (exact match) | — |
+| `--pii STRING [STRING ...]` | Strings to redact (exact match) | none |
 | `--ai` | Enable AI header scan on page 1 | off |
 | `--no-pii-file` | Ignore `pii.txt` even if it exists | off |
 | `--model MODEL` | Ollama model name | `llama3.2` |
@@ -220,7 +220,7 @@ input/*.pdf
 
 1. **Exact match** uses PyMuPDF's `search_for()` to locate text rectangles and applies redaction annotations with a white fill
 2. **AI scan** extracts text blocks from the header region, sends them to Ollama with a structured prompt, and parses the JSON response to identify PII indices
-3. Both modes can run in a single pass — exact match runs first, then AI catches anything you missed
+3. Both modes can run in a single pass: exact match runs first, then AI catches anything you missed
 
 ---
 
@@ -230,4 +230,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE) — do whatever you want with it.
+This project is licensed under the [MIT License](LICENSE). Do whatever you want with it.
