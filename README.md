@@ -10,7 +10,7 @@ A command-line tool that **automatically redacts personal information from PDF d
 ## ✨ Features
 
 - **Exact Match Redaction:** Provide a list of strings (names, addresses, etc.) and the tool finds and redacts every occurrence across all pages
-- **AI Header Scan:** Uses a local LLM (via [Ollama](https://ollama.com)) to intelligently identify PII in document headers you may have missed
+- **AI Header Scan:** Uses a local LLM (via [Ollama](https://ollama.com)) to identify PII in document headers -- useful for unstructured fields you forgot to add to `pii.txt`. The body of the document is covered by exact-match only.
 - **Batch Processing:** Drop multiple PDFs into the `input/` folder and redact them all in one run
 - **Fully Local:** No cloud APIs, no data leaves your machine
 - **Dual Mode:** Use exact match, AI scan, or both together in a single pass
@@ -156,14 +156,11 @@ python redact.py --ai --model llama3.2
 
 | Model | Size | Speed | Quality | Command |
 |-------|------|-------|---------|---------|
-| **qwen2.5:32b** | ~19 GB | 🐢 Slow | ★★★★★ | `ollama pull qwen2.5:32b` |
-| **gpt-oss:20b** | ~12 GB | 🐢 Slow | ★★★★★ | `ollama pull gpt-oss:20b` |
-| **llama3.2** | ~2 GB | ⚡ Fast | ★★★★☆ | `ollama pull llama3.2` |
-| **gemma3** | ~5 GB | ⚡ Fast | ★★★★☆ | `ollama pull gemma3` |
-| **mistral** | ~4 GB | ⚡ Fast | ★★★★☆ | `ollama pull mistral` |
-| **glm-4.7-flash** | ~5 GB | ⚡ Fast | ★★★★☆ | `ollama pull glm-4.7-flash` |
+| **qwen3.5:27b** | ~16 GB | 🐢 Slow | ★★★★★ | `ollama pull qwen3.5:27b` |
+| **llama3.1:8b** | ~4.7 GB | ⚡ Fast | ★★★★☆ | `ollama pull llama3.1:8b` |
+| **gemma4:e4b** | ~2.5 GB | ⚡ Fast | ★★★★☆ | `ollama pull gemma4:e4b` |
 
-> **💡 Tip:** `llama3.2` is the recommended default: small, fast, and accurate enough for PII detection. Any model that can follow JSON output instructions will work.
+> **💡 Tip:** `llama3.1:8b` is the recommended default: small, fast, and accurate enough for PII detection. Any model that can follow JSON output instructions will work.
 
 ---
 
